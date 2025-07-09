@@ -107,6 +107,7 @@ func (s *smoketestData) Check(graphite string) {
 		clientGraphite.Write(tr.ToBytes(s.MetricPrefix))
 		return
 	}
+	req.Header.Set("User-Agent", "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0")
 	req.Header.Set("accept", "application/json")
 	resp, err := client.Do(req)
 	if err != nil {
